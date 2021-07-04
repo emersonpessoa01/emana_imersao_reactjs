@@ -4,7 +4,8 @@ const upload = require("./middlewares/uploadImgAnuncio");
 const fs = require("fs");
 const path = require("path");
 const app = express();
-const port = 3000;
+// const port = 3000;
+require("dotenv").config();
 
 const Anuncio = require("./models/Anuncio");
 
@@ -43,7 +44,7 @@ app.get("/visualizar/:id", async (req, res) => {
     .then((anuncio) => {
       if (anuncio.imagem) {
         var endImagem =
-          "http://localhost:3000/files/anuncios/" + anuncio.imagem;
+          "http://localhost:3000/" + "files/anuncios/" + anuncio.imagem;
       } else {
         var endImagem =
           "http://localhost:3000/files/anuncios/icone_anuncio.jpg";
@@ -198,7 +199,7 @@ app.delete("/apagar/:id", async (req, res) => {
     });
 });
 
-
-app.listen(port || 8080, ()=>{
-  console.log(`Servidor iniciado na porta ${port}: http://localhost:${port}`);
+const APP_PORT = process.env.PORT || 8080;
+app.listen(APP_PORT, () => {
+  console.log(`Servidor iniciado na porta ${APP_PORT} em http://localhost:${APP_PORT}`);
 });

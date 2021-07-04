@@ -9,7 +9,8 @@
     "server1": "nodemon app.js",
     "server": "node app.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server1\" \"npm run client\""
+    "dev": "concurrently \"npm run server1\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "nodemonConfig": {
     "ignore": [
@@ -21,11 +22,13 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "sequelize": "^6.6.2"
-  }
+  },
+  "_id": "api@1.0.0"
 }

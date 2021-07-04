@@ -140,6 +140,7 @@ export const EditarAnuncioImg = (props) => {
                 alt="Imagem do anúncio"
                 width="150"
                 height="150"
+
               />
             )}
           </FormGroup>
